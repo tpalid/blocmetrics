@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
+  get 'users/new'
+
+  get 'users/create'
+
   get 'welcome/index'
 
   get 'welcome/about'
