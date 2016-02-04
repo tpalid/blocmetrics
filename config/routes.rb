@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  
+  get 'sign_in', to: 'sessions#new'
 
-  get 'sessions/new'
-
-  get 'users/new'
+  get 'sign_up', to: 'users#new'
 
   get 'welcome/index'
 
-  get 'welcome/about'
-  
   resources :users
   resources :sessions
 
