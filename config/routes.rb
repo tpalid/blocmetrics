@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   
   get 'sign_in', to: 'sessions#new'
+  
+  get 'sign_out', to: 'sessions#destroy'
 
   get 'sign_up', to: 'users#new'
-
+  
   get 'welcome/index'
 
   resources :users
