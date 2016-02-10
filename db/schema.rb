@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210022137) do
+ActiveRecord::Schema.define(version: 20160210023405) do
 
-  create_table "applications", force: :cascade do |t|
+  create_table "registered_applications", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
     t.integer  "user_id"
