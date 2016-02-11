@@ -11,6 +11,8 @@ describe SessionsController do
          #    expect(response).to be_success
          # end
          
+         #not necessary, because of the redirect to root passing?
+         
          it "creates a session for the user" do
             post(:create, { email: user.email , password: user.password })
             expect(session[:user_id]).to eq(user.id)
@@ -25,10 +27,10 @@ describe SessionsController do
       context "no user, or a user without valid credentials" do
          let(:user) { nil }
          
-         # it "responds with success" do
-         #    post :create
-         #    expect(response).to be_success
-         # end
+         it "responds with success" do
+             post :create
+             expect(response).to be_success
+         end
        
          it "renders a new template" do
             post :create
@@ -39,7 +41,7 @@ describe SessionsController do
    
    describe '#destroy' do
       
-      context 'a valid user' do
+      context 'a valid user logged in' do
          let(:user) { create(:user) }
          before do
             post(:create, { email: user.email , password: user.password })
@@ -51,12 +53,12 @@ describe SessionsController do
          # end
        
          it "deletes the session" do
-            get :destroy
+            delete :destroy
             expect(session[:user_id]).to be_nil
          end
          
          it "redirects to root_url" do
-            get :destroy
+            delete :destroy
             expect(response).to redirect_to(root_url)
          end
       end
@@ -64,6 +66,3 @@ describe SessionsController do
             
          
 end
-           
-      # context ""   
-               

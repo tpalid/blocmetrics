@@ -22,7 +22,7 @@ class RegisteredApplicationController < ApplicationController
     @registered_application = RegisteredApplication.find(params[:id])
   end
   
-  def updated
+  def update
   end
   
 
