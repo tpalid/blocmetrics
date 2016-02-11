@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ApplicationsControllerController, type: :controller do
+RSpec.describe RegisteredApplicationsController, type: :controller do
 
   describe "GET #index" do
     it "returns http success" do

@@ -6,13 +6,6 @@ describe SessionsController do
       context "a user with valid credentials" do
          let(:user) { create(:user) }
          
-         # it "responds with success" do
-         #    post(:create, { email: user.email , password: user.password })
-         #    expect(response).to be_success
-         # end
-         
-         #not necessary, because of the redirect to root passing?
-         
          it "creates a session for the user" do
             post(:create, { email: user.email , password: user.password })
             expect(session[:user_id]).to eq(user.id)
@@ -30,6 +23,11 @@ describe SessionsController do
          it "responds with success" do
              post :create
              expect(response).to be_success
+         end
+         
+         it "does not create a session" do
+            post :create
+            expect(session[:user_id]).to eq(nil)
          end
        
          it "renders a new template" do
