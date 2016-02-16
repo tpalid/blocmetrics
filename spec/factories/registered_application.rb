@@ -1,7 +1,7 @@
 FactoryGirl.define do
-  factory :application do
+  factory :registered_application do
     name "MyString"
     url "MyString"
-    user_id 1
+    association :user
   end
 end

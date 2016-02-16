@@ -1,5 +1,23 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe Application, type: :model do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
+describe RegisteredApplication do
+    it "is valid with a name, url, and user" do
+        expect(build(:registered_application)).to be_valid
+    end
+    
+    it "is invalid without a name" do
+        expect(build(:registered_application, name: nil)).to_not be_valid
+    end
+    
+    it "is invalid without a url" do
+        expect(build(:registered_application, url: nil)).to_not be_valid
+    end
+    
+    it "is invalid without a user" do
+        expect(build(:registered_application, user: nil)).to_not be_valid
+    end
+
+end
+    
+
+
