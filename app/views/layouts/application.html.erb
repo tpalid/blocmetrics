@@ -11,6 +11,7 @@
   <div class="pull-right">
   <% if current_user %>
     Hello <%= current_user.name || current_user.email %>!
+    <%= link_to "My Applications", registered_applications_index_path %>
     <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
     <%= link_to "Sign Out", sign_out_path %>
   <% else %>

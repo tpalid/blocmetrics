@@ -22,5 +22,19 @@ test_user = User.create!(
     password: 'helloworld'
     )
 
+users = User.all
+
+100.times do
+    RegisteredApplication.create!(
+        name: Faker::Lorem.words(1),
+        url: Faker::Internet.url,
+        user: users.sample
+        )
+end
+
+puts "Seed finished"
+puts "#{User.count} users created"
+puts "#{RegisteredApplication.count} applications created"
+
 
 
