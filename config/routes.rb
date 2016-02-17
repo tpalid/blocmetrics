@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  
-  get 'registered_applications/index'
-
-  get 'registered_applications/new'
-
-  get 'registered_applications/create'
-
-  get 'registered_applications/destroy'
-
   get 'sign_in', to: 'sessions#new'
   
   get 'sign_out', to: 'sessions#destroy'
@@ -17,8 +8,11 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :users
-  resources :sessions
   resources :registered_applications
+  
+  
+  resources :sessions, only: [:new, :create, :destroy]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

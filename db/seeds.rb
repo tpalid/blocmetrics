@@ -26,7 +26,7 @@ users = User.all
 
 100.times do
     RegisteredApplication.create!(
-        name: Faker::Lorem.words(1),
+        name: Faker::Lorem.word,
         url: Faker::Internet.url,
         user: users.sample
         )
