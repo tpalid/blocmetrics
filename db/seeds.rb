@@ -34,12 +34,40 @@ end
 registered_applications = RegisteredApplication.all
 
 
-500.times do
+200.times do
     Event.create!(
-        name: Faker::Lorem.word,
-        registered_application: registered_applications.sample
+        name: 'click',
+        registered_application_id: registered_applications.sample.id
         )
-    end
+end
+
+200.times do
+    Event.create!(
+        name: 'purchase',
+        registered_application_id: registered_applications.sample.id
+        )
+end
+
+200.times do
+    Event.create!(
+        name: 'page_view',
+        registered_application_id: registered_applications.sample.id
+        )
+end
+
+200.times do
+    Event.create!(
+        name: 'new_account',
+        registered_application_id: registered_applications.sample.id
+        )
+end
+
+200.times do 
+    Event.create!(
+        name: 'return',
+        registered_application_id: registered_applications.sample.id
+        )
+end
 
 puts "Seed finished"
 puts "#{User.count} users created"
