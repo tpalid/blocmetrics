@@ -18,7 +18,7 @@ class RegisteredApplicationsController < ApplicationController
     @registered_application.user = current_user
     if @registered_application.save
       flash[:notice] = "Application was saved!"
-      render :show
+      redirect_to registered_application_path(@registered_application)
     else
       flash[:error] = "There was an error saving the application.  Please try again."
       render :new
@@ -33,7 +33,7 @@ class RegisteredApplicationsController < ApplicationController
     @registered_application = RegisteredApplication.find(params[:id])
     if @registered_application.update_attributes(registered_application_params)
       flash[:notice] = "Your application was updated."
-      redirect_to root_url
+      redirect_to registered_application_path(@registered_application)
     else
       flash[:notice] = "There was an error updating your application.  Please try again."
       render :edit
@@ -45,7 +45,7 @@ class RegisteredApplicationsController < ApplicationController
     @registered_application = RegisteredApplication.find(params[:id])
     if @registered_application.destroy
       flash[:notice] = "Your application was deleted"
-      redirect_to root_url
+      redirect_to registered_applications_path
     else
       flash[:notice] = "There was an error deleting your application. Please try again."
       render :edit

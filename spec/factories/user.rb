@@ -10,5 +10,13 @@ FactoryGirl.define do
         factory :invalid_user do
             name nil
         end
+        
+        factory :user_with_registered_applications do
+            after(:create) do |user|
+                2.times do
+                    create(:registered_application, user: user)
+                end
+            end
+        end
     end
 end
