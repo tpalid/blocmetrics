@@ -1,5 +1,9 @@
 <h1><%= @registered_application.name %> </h1>
 <h4><%= link_to "#{@registered_application.url}", @registered_application.url %></h4>
 <ul>
-<%= @events %>
+<% @events.each do |name, events| %>
+    <li>
+    <%= name.humanize.pluralize %>: <%= events.length %>
+    </li>
+<% end %>
 <%= link_to "Edit", edit_registered_application_path(@registered_application), class: 'btn btn-success' %>

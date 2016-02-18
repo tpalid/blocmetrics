@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'sign_in', to: 'sessions#new'
   
-  get 'sign_out', to: 'sessions#destroy'
+  delete 'sign_out', to: 'sessions#destroy'
 
   get 'sign_up', to: 'users#new'
   
@@ -12,8 +12,13 @@ Rails.application.routes.draw do
   
   
   resources :sessions, only: [:new, :create, :destroy]
-
-
+  
+  namespace :api, defaults: { format: :json } do
+    match '/events', to: 'events#index', via: [:options]
+    resources :events, only: [:create]
+  end
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

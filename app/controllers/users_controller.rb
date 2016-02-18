@@ -15,11 +15,11 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
   
   def update
-    @user = current_user
+    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:notice] = "Your information was updated."
       redirect_to root_url
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user = current_user
+    @user = User.find(params[:id])
     if @user.destroy
       session[:user_id] = nil
       flash[:notice] = "Your account was deleted."
