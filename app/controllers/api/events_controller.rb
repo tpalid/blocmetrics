@@ -24,10 +24,7 @@ class API::EventsController < ApplicationController
     
     private
     
-    # params = {name: ''}
-    # params = {format: '', event: {name: ''}}
     def event_params
-        p params
         params.permit(:name)
     end
 end
