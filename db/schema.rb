@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160217022754) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.integer  "registered_application_id"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160217022754) do
     t.datetime "updated_at",                null: false
   end
 
-  add_index "events", ["registered_application_id"], name: "index_events_on_registered_application_id"
+  add_index "events", ["registered_application_id"], name: "index_events_on_registered_application_id", using: :btree
 
   create_table "registered_applications", force: :cascade do |t|
     t.string   "name"
@@ -39,4 +42,5 @@ ActiveRecord::Schema.define(version: 20160217022754) do
     t.datetime "updated_at",    null: false
   end
 
+  add_foreign_key "events", "registered_applications"
 end

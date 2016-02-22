@@ -36,7 +36,7 @@ registered_applications = RegisteredApplication.all
 
 500.times do
     Event.create!(
-        name: Faker::Lorem.word,
+        name: ['click', 'page_view', 'purchase', 'new_user', 'sign_in', 'sign_out'].sample,
         registered_application: registered_applications.sample
         )
     end
