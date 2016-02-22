@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'sign_in', to: 'sessions#new'
   
-  delete 'sign_out', to: 'sessions#destroy'
+  get 'sign_out', to: 'sessions#destroy'
 
   get 'sign_up', to: 'users#new'
   
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   namespace :api, defaults: { format: :json } do
     match '/events', to: 'events#index', via: [:options]
-    resources :events, only: [:create]
+    resources :events, only: [:create, :index]
   end
   
   
