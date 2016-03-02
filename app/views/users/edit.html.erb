@@ -22,4 +22,4 @@
     </div>
 <% end %>
 
-<%= link_to "Delete Profile", @user, method: :delete %>
+<%= link_to "Delete Profile", @user, method: :delete, data: { confirm: "Are you sure you want to delete your account?"} %>

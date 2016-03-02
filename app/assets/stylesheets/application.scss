@@ -17,3 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+#bootstrap-overrides {
+    font-family: 'Roboto', sans-serif;
+}
+
+#links {
+    margin-top: 10px;
+}
