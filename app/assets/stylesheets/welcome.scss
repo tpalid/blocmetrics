@@ -3,7 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron {
-    font-family: 'Unica One', cursive;
-    margin-top: 40px;
-   }
+    margin-top: 50px;
+    // background-image: url("http://i.imgur.com/WRsSuw1.png");
+    }
+.jumbotron h1 {
+     font-family: 'Unica One', cursive;
+    color: white;
+}
 

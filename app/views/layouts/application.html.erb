@@ -5,29 +5,30 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link href='https://fonts.googleapis.com/css?family=Unica+One' rel='stylesheet' type='text/css'>
- <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<div class="container" id = "bootstrap-overrides">
-  <div class="pull-right" id=  "links">
-  <% if current_user %>
-    Hello <%= current_user.name || current_user.email %>!
-    <%= link_to "My Applications", registered_applications_path %>
-    <%= link_to edit_user_path(current_user), class: 'btn btn-primary btn-sm' do %>
-      <span class="glyphicon glyphicon-user"></span>
-    <% end %>
-    <%= link_to sign_out_path, class: 'btn btn-primary btn-sm' do %>
-        <span class="glyphicon glyphicon-log-out"></span>
-    <% end %>
-  <% else %>
-    <%= link_to "Sign In", sign_in_path %> or
-    <%= link_to "Sign Up", sign_up_path %>
-  <% end %>
-  </div>
-  <%= render partial: 'shared/flashes' %>
-  <%= yield %>
-</div>
 
+<body>
+  <div class="container" id = "bootstrap-overrides">
+    <%= render partial: 'shared/flashes' %>
+    <div class="pull-right links">
+      <% if current_user %>
+        Hello <%= current_user.name || current_user.email %>!
+        <%= link_to "My Applications", registered_applications_path %>
+        <%= link_to edit_user_path(current_user), class: 'btn btn-primary btn-sm' do %>
+          <span class="glyphicon glyphicon-user"></span>
+        <% end %>
+        <%= link_to sign_out_path, class: 'btn btn-primary btn-sm' do %>
+          <span class="glyphicon glyphicon-log-out"></span>
+        <% end %>
+      <% else %>
+        <%= link_to "Sign In", sign_in_path %> or
+        <%= link_to "Sign Up", sign_up_path %>
+      <% end %>
+    </div>
+    
+    <%= yield %>
+  </div>
 </body>
 </html>
